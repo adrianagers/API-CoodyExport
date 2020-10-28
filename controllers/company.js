@@ -1,5 +1,7 @@
 const CompanyModel =require('../models/company') //estamos requiriendo el modelo
-
+/**
+ * Metodo para registrar una nueva empresa
+*/
 exports.create = (req, res) => {
     //validamos que todos los datos del formulario esten llenos 
     //Object.entries= identificar cuales son los datos que tiene ese objeto
@@ -31,9 +33,8 @@ exports.create = (req, res) => {
 }
 
 /**
- * Metodo para actualizar una empresa
- */
-
+ * Metodo para modificar una empresa
+*/
  exports.update=(req,res)=>{
      //validacion de que todos los campos que se van a actualizar esten llenos 
     if (Object.entries(req.body).length == 0) {
@@ -64,4 +65,52 @@ exports.create = (req, res) => {
                 })
             }
         )
+}
+
+/**
+ * metodo para listar todas las empresas que estan en la plataforma
+ */
+exports.getAll=(req,res)=>{
+    CompanyModel.find()//find criterio de busqueda cuando queremos algo en especifico
+   
+    .then((company)=>{res.send(company)})
+    .catch(
+        (error)=>{
+            res.status(500).send({
+                message:error.message
+            })
+        }
+    )
+}
+
+/**
+ * Metodo para obtener una empresa por el id 
+*/
+exports.getOne=(req,res)=>{
+    CompanyModel.findById(req.params.id)//findById Busque por el id
+
+    .then((company)=>{res.send(company)})
+    .catch(
+        (error)=>{
+            res.status(500).send({
+                message:error.message
+            })
+        }
+    )
+}
+
+/**
+ * Metodo para eliminar una empresa
+*/
+exports.deleteOne=(req,res)=>{
+    CompanyModel.findByIdAndRemove(req.params.id)
+    .then((company)=>{res.send(company)})
+    .catch(
+        (error)=>{
+        res.status(500).send({
+            message:error.message
+        })
+    }
+
+    )
 }
