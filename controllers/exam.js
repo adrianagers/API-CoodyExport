@@ -1,3 +1,4 @@
+const exam = require('../models/exam')
 const ExamModel = require('../models/exam')
 
 exports.create = (req, res) => {
@@ -10,7 +11,10 @@ exports.create = (req, res) => {
         tituloExamen: req.body.tituloExamen,
         descripcionExamen: req.body.descripcionExamen,
         lenguajeExamen: req.body.lenguajeExamen,
-        linkExamen: req.body.linkExamen
+        linkExamen: req.body.linkExamen,
+        cargo: req.body.cargo,
+        salario: req.body.salario,
+        empresa: req.body.empresa
     })
     exam.save()
         .then((dataExam) => { res.send(dataExam) })
@@ -33,7 +37,10 @@ exports.update = (req, res) => {
         tituloExamen: req.body.tituloExamen,
         descripcionExamen: req.body.descripcionExamen,
         lenguajeExamen: req.body.lenguajeExamen,
-        linkExamen: req.body.linkExamen
+        linkExamen: req.body.linkExamen,
+        cargo: req.body.cargo,
+        salario: req.body.salario,
+        empresa: req.body.empresa
     }
     
     ExamModel.findByIdAndUpdate(req.params.id, exam, { new: true })
@@ -48,4 +55,42 @@ exports.update = (req, res) => {
                 })
             }
         )    
+}
+
+exports.getAll =(req, res) => {
+    ExamModel.find()
+    .populate('companies')
+    .exec()
+    .then((exams) => res.send(exams))
+    .catch(
+        (error) => {
+            res.status(500).send({
+                message: error.nessage
+            })
+        }
+    )
+}
+exports.getOne = (req, res) => {
+    ExamModel.findById(req.params.id)
+    .populate('companies')
+    .exec()
+    .then((exam) => {res.send(exam)})
+    .catch(
+        (error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        }
+    )
+}
+exports.deleteOne= (req,res) => {
+    ExamModel.findByIdAndRemove(req.params.id)
+    .then((exam)=> {res.send(exam)})
+    .catch(
+        (error) => {
+            res.status(500).send( {
+                message:error.message
+            })
+        }
+    )
 }
