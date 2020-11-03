@@ -62,3 +62,4 @@ exports.update = (req, res) => {
             }
         )
 }
+//  falta esta falta eliminar mostrat una  y mostrar muchas  siiiiip esa es la tuya siii??? o cual es 

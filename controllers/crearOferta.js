@@ -70,3 +70,6 @@ exports.update = (req, res) => {
             }
         )
 }
+
+
+// faltan creo que cuatro  si no estoy mal si 
