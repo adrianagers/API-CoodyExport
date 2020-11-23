@@ -1,4 +1,5 @@
 const UserModel = require('../models/user');
+const service = require('../services/index')
 /**
  * Metodo para almacenal un nuevo usuario 
  * @param {*} req => todo lo que enviamos desde el dody (formulario)

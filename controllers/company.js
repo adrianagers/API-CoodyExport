@@ -1,4 +1,5 @@
 const CompanyModel =require('../models/company') //estamos requiriendo el modelo
+const service = require('../services/indexCompany')
 /**
  * Metodo para registrar una nueva empresa
 */
@@ -113,4 +114,26 @@ exports.deleteOne=(req,res)=>{
     }
 
     )
+}
+
+/**
+ * Metodo para loguearse
+ */
+exports.loginCompany= (req, res) =>{
+    CompanyModel.findOne({email:req.body.email},(error, dataCompany)=>{
+        if (dataCompany != null) {
+            if (dataCompany.password == req.body.password) {
+                res.send({token: service.createToken(dataCompany)})    
+            }else{
+                res.status(400).send({
+                    message: 'Los datos no coinciden'
+                })
+            }
+            
+        }else{
+            res.status(400).send({
+                message: 'Los datos no coinciden'
+            })
+        }
+    })
 }
