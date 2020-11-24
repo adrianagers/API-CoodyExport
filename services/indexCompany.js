@@ -1,6 +1,7 @@
 const jwt=require('jwt-simple')
 const moment=require('moment')
-const SECRET='CoodySecretTokenCompany'
+const config=require('../config')
+const SECRET=config.keyToken
 
 exports.createToken=(dataCompany)=>{
 
