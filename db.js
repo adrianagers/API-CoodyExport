@@ -1,7 +1,7 @@
 const mongoose =require('mongoose');
 const conectDB = ()=>{
    
-    mongoose.connect('mongodb+srv://CoodyExpert-Morse:CoodyExpert-Morse@coodyexpert-morse.1aobr.mongodb.net/CoodyExpert?retryWrites=true&w=majority',{
+    mongoose.connect('',{
         useNewUrlParser:true,useUnifiedTopology:true},(error)=>{
             if(error){
                 console.log('Error',error)
