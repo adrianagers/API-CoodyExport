@@ -2,11 +2,12 @@ const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const {conectDB} =require('./db'); 
-const port=process.env.PORT || 8080
+
 
 const app =express()
 app.use(cors())
 app.use(bodyParser.json())
+const port=process.env.PORT || 8080
 
 conectDB(); //conectamos base de datos 
 require('./routes/user')(app)
