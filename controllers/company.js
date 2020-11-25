@@ -18,7 +18,8 @@ exports.create = (req, res) => {
         nitCompany:  req.body.nitCompany,
         phoneCompany:  req.body.phoneCompany,
         email: req.body.email,
-        password:req.body.password
+        password:req.body.password,
+        role: req.body.role
     })
     
 
@@ -51,7 +52,8 @@ exports.create = (req, res) => {
         nitCompany:  req.body.nitCompany,
         phoneCompany:  req.body.phoneCompany,
         email: req.body.email,
-        password:req.body.password
+        password:req.body.password,
+        role: req.body.role
  }
  //findByIdAndUpdate= metodo de mongoose que permite buscar por id y actualizar
  CompanyModel.findByIdAndUpdate(req.params.id, company)

@@ -71,5 +71,53 @@ exports.update = (req, res) => {
         )
 }
 
+/**
+ * Metodo para listar ofertas 
+ */
+exports.getAll = (req, res) => {
+    CrarOfertaModel.find()
+        .then((oferta) => {
+            res.send(oferta)
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        })
 
-// faltan creo que cuatro  si no estoy mal si 
+}
+
+/**
+ * Metodo para listar una oferta
+ */
+exports.getOne = (req, res) => {
+    // console.log('aqui ta')
+    CrarOfertaModel.findById(req.params.id)
+       
+        .then((oferta) => {
+            res.send(oferta)
+        })
+        .catch((error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        })
+}
+
+/**
+ * Metodo para eliminar todas las ofertas
+ */
+exports.deleteOne=(req,res)=>{
+    CrarOfertaModel.findByIdAndRemove(req.params.id)
+    .then(( ofertadelete) => {
+        res.send( ofertadelete)
+    })
+    .catch((error) => {
+        res.status(500).send({
+            message: error.message
+        })
+    })
+    }
+
+
+

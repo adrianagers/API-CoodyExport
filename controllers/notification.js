@@ -57,5 +57,20 @@ exports.create = (req, res) => {
             }
         )
 }
-// aaaaa vale siii dale trankis 
-// jajajaj dale  desconectemosnos jejej buena noche vale chao
+
+/**
+ * Metodo para eliminar notificaciones
+ */
+exports.deleteOne=(req,res)=>{
+    NotificationModel.findByIdAndRemove(req.params.id)
+    .then(( deletenotificacion) => {
+        res.send( deletenotificacion)
+    })
+    .catch((error) => {
+        res.status(500).send({
+            message: error.message
+        })
+    })
+    }
+
+
