@@ -22,7 +22,8 @@ exports.create = (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        phone: req.body.phone 
+        phone: req.body.phone,
+        role: req.body.role
 
     })
 
@@ -52,7 +53,8 @@ exports.update = (req, res) => {
         lastName: req.body.lastName,
         password: req.body.password,
         email: req.body.email,
-        phone: req.body.phone
+        phone: req.body.phone,
+        role: req.body.role
 
     }
     
@@ -82,6 +84,7 @@ exports.getAll = (req, res) => {
         })
 
 }
+
 exports.getOne = (req, res) => {
     // console.log('aqui ta')
     UserModel.findById(req.params.id)
@@ -95,6 +98,7 @@ exports.getOne = (req, res) => {
             })
         })
 }
+
 exports.deleteOne=(req,res)=>{
     UserModel.findByIdAndRemove(req.params.id)
     .then((userdelete) => {

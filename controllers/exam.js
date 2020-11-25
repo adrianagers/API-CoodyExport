@@ -1,4 +1,4 @@
-const exam = require('../models/exam')
+
 const ExamModel = require('../models/exam')
 
 exports.create = (req, res) => {
