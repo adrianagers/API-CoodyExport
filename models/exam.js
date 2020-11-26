@@ -10,3 +10,5 @@ const examSchema = new mongoose.Schema({
     empresa:{type: mongoose.Schema.Types.ObjectId, ref: 'Empresa'}
 })
 module.exports = mongoose.model('Exam', examSchema)
+
+
