@@ -7,6 +7,6 @@ const examSchema = new mongoose.Schema({
     linkExamen: {type:String, required:true},
     cargo:{ type:String, required:true},
     salario:{ type:String, required: true},
-    empresa:{type: mongoose.Schema.Types.ObjectId, ref: 'Empesa'}
+    empresa:{type: mongoose.Schema.Types.ObjectId, ref: 'Empresa'}
 })
 module.exports = mongoose.model('Exam', examSchema)
