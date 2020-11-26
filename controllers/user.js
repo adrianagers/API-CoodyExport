@@ -23,7 +23,8 @@ exports.create = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         phone: req.body.phone,
-        role: req.body.role
+        role: req.body.role,
+        tipo: req.body.tipo
 
     })
 
@@ -54,7 +55,8 @@ exports.update = (req, res) => {
         password: req.body.password,
         email: req.body.email,
         phone: req.body.phone,
-        role: req.body.role
+        role: req.body.role,
+        tipo: req.body.tipo
 
     }
     
