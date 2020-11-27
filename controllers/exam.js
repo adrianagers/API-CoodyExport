@@ -14,15 +14,16 @@ exports.create = (req, res) => {
         linkExamen: req.body.linkExamen,
         cargo: req.body.cargo,
         salario: req.body.salario,
-        empresa: req.body.empresa
+        company: req.body.company
     })
     exam.save()
         .then((dataExam) => { res.send(dataExam) })
-        .catch((error) => {
-            res.status(500).send({
+        .catch(error => {
+           return res.status(500).send({
                 message: error.message
             })
-        })
+        }
+        )
 }
 
 exports.update = (req, res) => {
@@ -40,7 +41,7 @@ exports.update = (req, res) => {
         linkExamen: req.body.linkExamen,
         cargo: req.body.cargo,
         salario: req.body.salario,
-        empresa: req.body.empresa
+        company: req.body.company
     }
     
     ExamModel.findByIdAndUpdate(req.params.id, exam, { new: true })
