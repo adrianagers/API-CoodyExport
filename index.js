@@ -16,6 +16,7 @@ require('./routes/postulation')(app)
 require('./routes/notification')(app)
 require('./routes/crearOferta')(app)
 require('./routes/company')(app)
+require('./routes/exam')(app)
 
 
 app.listen( port,()=>{

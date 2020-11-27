@@ -12,6 +12,7 @@ exports.create = (req, res) => {
     const notification = new NotificationModel({
         statusNotification: req.body.statusNotification,
         messageNotification:  req.body.messageNotification
+        
     })
     
 
