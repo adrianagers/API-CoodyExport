@@ -6,3 +6,6 @@ module.exports = (app) => {
     app.get('/exam/getOne/:id', exam.getOne)
     app.delete('/exam/deleteOne/:id', exam.deleteOne)
 }
+
+
+
